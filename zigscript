@@ -1,0 +1,6 @@
+#!/bin/sh
+CachedScript="${XDG_CACHE_HOME:-$HOME/.cache}/zigscript/$(realpath "$1")"
+mkdir -p "$(dirname "$CachedScript")"
+tail -n +2 "$1" > "$CachedScript"
+zig run "$CachedScript"
+
